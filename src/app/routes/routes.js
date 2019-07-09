@@ -1,3 +1,4 @@
+const db = require('../../config/database')
 module.exports = (app) => {
     app.get('/', function (req, resp) {
         resp.send(`
@@ -12,20 +13,14 @@ module.exports = (app) => {
 `)
     })
     app.get('/livros', function (req, resp) {
-        resp.marko(
-            require('../views/books/lista/lista.marko'),
-            {
-                livros:[
-                    {
-                        id: 1,
-                        titulo: 'Fundamentos do Node'
-                    },
-                    {
-                        id: 2,
-                        titulo: 'Node Avançado'
-                    }
-                ]
-            }
-        )
+
+        list(function (err, resul) {
+            resp.marko(
+                require('../views/books/lista/lista.marko'),
+                {
+                    livros: result
+                }
+            )
+        })
     })
 }
