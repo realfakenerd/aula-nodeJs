@@ -12,17 +12,19 @@ module.exports = (app) => {
     </body> 
     </html>
 `)
-    })
-    app.get('/livros', function (req, resp) {
+    });
+    app.get('/livros', (req, resp) => {
         const booksDao = new BooksDao(db);
 
         booksDao.list()
             .then((livros) => resp.marko(
                 require('../views/books/lista/lista.marko'),
                 {
-                    livros: result
+                    livros
                 }
             )).catch((err) => console.log(err)
             )
-    })
+    });
+    app.get('/livros/form', (req, resp) => resp.marko(require('../views/books/forms/form.marko')));
+    app.post('/livros', (req, resp) => console.log(req.body));
 }
