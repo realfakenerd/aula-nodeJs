@@ -29,8 +29,8 @@ module.exports = (app) => {
         console.log(req.body);
         const booksDao = new BooksDao(db);
 
-        booksDao.adiciona()
-            .then()
+        booksDao.adiciona(req.body)
+            .then(resp.redirect('/livros'))
             .catch((err) => console.log(err));
     });
 }
