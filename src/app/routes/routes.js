@@ -1,5 +1,6 @@
-app.get('/', function (req, resp) {
-    resp.send(`
+module.exports = (app) => {
+    app.get('/', function (req, resp) {
+        resp.send(`
     <html>
     <head>
         <meta charset="utf-8">
@@ -9,4 +10,5 @@ app.get('/', function (req, resp) {
     </body> 
     </html>
 `)
-})
+    })
+}
