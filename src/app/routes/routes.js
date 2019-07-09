@@ -22,9 +22,15 @@ module.exports = (app) => {
                 {
                     livros
                 }
-            )).catch((err) => console.log(err)
-            )
+            )).catch((err) => console.log(err));
     });
     app.get('/livros/form', (req, resp) => resp.marko(require('../views/books/forms/form.marko')));
-    app.post('/livros', (req, resp) => console.log(req.body));
+    app.post('/livros', (req, resp) => {
+        console.log(req.body);
+        const booksDao = new BooksDao(db);
+
+        booksDao.adiciona()
+            .then()
+            .catch((err) => console.log(err));
+    });
 }
