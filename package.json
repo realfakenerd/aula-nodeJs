@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/realfakenerd/aula-nodeJs/issues"
   },
-  "homepage": "https://github.com/realfakenerd/aula-nodeJs#readme"
+  "homepage": "https://github.com/realfakenerd/aula-nodeJs#readme",
+  "dependencies": {
+    "express": "4.16.3"
+  }
 }
