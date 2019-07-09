@@ -11,4 +11,9 @@ module.exports = (app) => {
     </html>
 `)
     })
+    app.get('/livros', function (req, resp) {
+        resp.marko(
+            require('../views/books/lista/lista.marko')
+        )
+    })
 }
